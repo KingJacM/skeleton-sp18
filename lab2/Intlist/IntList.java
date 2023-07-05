@@ -81,8 +81,25 @@ public class IntList {
      */
 
     public static IntList dcatenate(IntList A, IntList B) {
-        //TODO:  fill in method
-        return null;
+        /** taking consideration of A is null */
+        if(A == null){
+            return B;
+        }
+
+        /**After the temp = temp.rest; line is executed in the loop,
+         * temp moves to the next node of the linked list but A is still pointing to the head of the list.
+
+         At the end of the while loop, temp is pointing to the last node of the original list A.
+         When we say temp.rest = B;, it doesn't change temp itself,
+         but instead it changes the rest pointer of the last node temp is pointing to,
+         essentially appending B to the end of list A */
+        IntList temp = A;
+        while(temp.rest != null){
+            temp = temp.rest;
+        }
+        temp.rest = B;
+
+        return A;
     }
 
     /**
@@ -90,8 +107,23 @@ public class IntList {
      * * elements of B.  May NOT modify items of A.  Use 'new'.
      */
     public static IntList catenate(IntList A, IntList B) {
-        //TODO:  fill in method
-        return null;
+        /** base case is when A is null or A just has one node, and B will be catenated*/
+        if(A == null){
+            return B;
+        } else if (A.rest == null) {
+            return new IntList(A.first, B);
+        }
+
+        /** Use recursion,  */
+        return new IntList(A.first, catenate(A.rest,B));
+
+        /** new IntList(1, new IntList(2, new IntList(3, 4 -> 5)))
+         * Which, when populate back, basically means catenate the end of the list
+         * (A's last node and B) to a new first node (A's second to last node), and until the original node.
+         * Think of it as a team of people grabbing each other on cliff and each pulling the person before them
+         * after the last person at the bottom grabbed another person on the floor.
+         * */
+
     }
 
 
