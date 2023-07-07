@@ -48,7 +48,6 @@ import java.util.regex.Pattern;
  *  @author Kevin Wayne
  */
 public final class In {
-    
     private Scanner scanner;
 
     /*** begin: section (1 of 2) of code duplicated from In to StdIn */
