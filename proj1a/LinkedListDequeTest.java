@@ -1,3 +1,5 @@
+import org.junit.Assert;
+
 /** Performs some basic linked list tests. */
 public class LinkedListDequeTest {
 	
@@ -36,7 +38,7 @@ public class LinkedListDequeTest {
 	public static void addIsEmptySizeTest() {
 		System.out.println("Running add/isEmpty/Size test.");
 		System.out.println("Make sure to uncomment the lines below (and delete this print statement).");
-		/*
+
 		LinkedListDeque<String> lld1 = new LinkedListDeque<String>();
 
 		boolean passed = checkEmpty(true, lld1.isEmpty());
@@ -58,7 +60,7 @@ public class LinkedListDequeTest {
 		lld1.printDeque();
 
 		printTestStatus(passed);
-		*/
+
 	}
 
 	/** Adds an item, then removes an item, and ensures that dll is empty afterwards. */
@@ -67,26 +69,85 @@ public class LinkedListDequeTest {
 		System.out.println("Running add/remove test.");
 
 		System.out.println("Make sure to uncomment the lines below (and delete this print statement).");
-		/*
+
 		LinkedListDeque<Integer> lld1 = new LinkedListDeque<Integer>();
-		// should be empty 
+		// should be empty
 		boolean passed = checkEmpty(true, lld1.isEmpty());
 
 		lld1.addFirst(10);
-		// should not be empty 
+		// should not be empty
 		passed = checkEmpty(false, lld1.isEmpty()) && passed;
 
 		lld1.removeFirst();
-		// should be empty 
+		// should be empty
 		passed = checkEmpty(true, lld1.isEmpty()) && passed;
 
 		printTestStatus(passed);
-		*/
+
 	}
 
+	public static void testAddFirst(){
+		LinkedListDeque<Integer> lld1 = new LinkedListDeque<Integer>();
+		lld1.addFirst(1);
+
+		lld1.addLast(2);
+		System.out.print(lld1);
+
+	}
+
+	public static void testVisualize(){
+		ArrayDeque<String> lld1 = new ArrayDeque<String>();
+		lld1.addLast("a");
+		System.out.println("\n");
+		lld1.printDeque();
+		lld1.addLast("b");
+		System.out.println("\n");
+		lld1.printDeque();
+		lld1.addFirst("c");
+		System.out.println("\n");
+		lld1.printDeque();
+		lld1.addLast("d");
+		System.out.println("\n");
+		lld1.printDeque();
+		lld1.addLast("e");
+		System.out.println("\n");
+		lld1.printDeque();
+		lld1.addFirst("f");
+		System.out.println("\n");
+		lld1.printDeque();
+		lld1.addLast("g");
+		System.out.println("\n");
+		lld1.printDeque();
+		lld1.addLast("h");
+		System.out.println("\n");
+		lld1.printDeque();
+		lld1.addLast("Z");
+//		lld1.removeFirst();
+		System.out.println("\n");
+		lld1.printDeque();
+		lld1.addLast("E");
+		System.out.println("\n");
+		lld1.printDeque();
+		lld1.addFirst("F");
+		System.out.println("\n");
+		lld1.printDeque();
+		lld1.addLast("G");
+		System.out.println("\n");
+		lld1.printDeque();
+		lld1.addLast("H");
+		System.out.println("\n");
+		lld1.printDeque();
+		lld1.addFirst("T");
+//		lld1.removeFirst();
+		System.out.println("\n");
+		lld1.printDeque();
+	}
 	public static void main(String[] args) {
 		System.out.println("Running tests.\n");
 		addIsEmptySizeTest();
+
 		addRemoveTest();
+//		testAddFirst();
+		testVisualize();
 	}
 } 
